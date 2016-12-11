@@ -14,12 +14,12 @@ app = Flask(__name__)
 
 @app.route('/webhook', methods=['GET'])
 def webhook():
-    req = request.get_json(silent=True, force=True)
+    # req = request.get_json(silent=True, force=True)
 
-    print("Request:")
-    print(json.dumps(req, indent=4))
+    print("Request: NaSha")
+    # print(json.dumps(req, indent=4))
 
-    res = processRequest(req)
+    res = processRequest()
 
     res = json.dumps(res, indent=4)
     # print(res)
@@ -28,7 +28,7 @@ def webhook():
     return r
 
 
-def processRequest(req):
+def processRequest():
     # if req.get("result").get("action") != "yahooWeatherForecast":
     #     return {}
     # baseurl = "https://query.yahooapis.com/v1/public/yql?"
@@ -39,7 +39,7 @@ def processRequest(req):
     # result = urllib.urlopen(yql_url).read()
     # data = json.loads(result)
     # res = makeWebhookResult(data)
-    res = makeFakeResult(data)
+    res = makeFakeResult()
     return res
 
 
