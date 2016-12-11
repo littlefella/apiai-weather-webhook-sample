@@ -12,6 +12,10 @@ from flask import make_response
 app = Flask(__name__)
 
 
+@app.route('/hello')
+def hello_world():
+    return 'Hello, World!'
+
 @app.route('/webhook', methods=['GET'])
 def webhook():
     # req = request.get_json(silent=True, force=True)
